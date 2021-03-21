@@ -1,6 +1,9 @@
 package com.lan.backend.DTO;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 public class Note {
@@ -9,7 +12,8 @@ public class Note {
   private long userId;
   private String title;
   private String content;
-  private java.sql.Timestamp editTime;
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+  private Date editTime;
 
 
   public long getNoteId() {
@@ -48,7 +52,7 @@ public class Note {
   }
 
 
-  public java.sql.Timestamp getEditTime() {
+  public Date getEditTime() {
     return editTime;
   }
 
